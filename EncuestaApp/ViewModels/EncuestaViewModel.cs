@@ -42,13 +42,7 @@ namespace EncuestaApp.ViewModels
             Personal = Encuestas.Average(x => x.Personal) * 10;
             BgPersonal = Personal <= 40 ? Color.Red : (Personal > 40 && Personal < 80) ? Color.Yellow : Color.Green;
 
-            OnPropertyChanged(nameof(Satisfaccion));
-            OnPropertyChanged(nameof(Lugar));
-            OnPropertyChanged(nameof(Personal));
-
-            OnPropertyChanged(nameof(BgSatisfaccion));
-            OnPropertyChanged(nameof(BgLugar));
-            OnPropertyChanged(nameof(BgPersonal));
+            OnPropertyChanged();
             
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Satisfaccion"));
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lugar"));
