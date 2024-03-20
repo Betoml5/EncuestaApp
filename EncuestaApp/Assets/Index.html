@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Encuesta de servicio al cliente</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #1D2B53;
+            font-family:Arial, sans-serif;
+        }
+        h1{
+            color:#fff;
+        }
+        form button{
+            background-color: #5E548E;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-control{
+            color:#fff;
+            display: flex;
+            flex-direction: column;
+            margin:32px 0px;
+        }
+
+        .form-control div{
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .form-control div input {
+            margin:0px 20px;
+        }
+
+        section {
+            width: 70%;
+            margin: 0 auto;
+            margin-top: 160px;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <section>
+            <h1>Encuesta de servicio al cliente</h1>
+
+            <form action="./crear" method="post">
+                <div class="form-control">
+                    <label>En un rango del 1 al 10 que tan satisfecho estas con los productos que tenemos</label>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/260/260222.png" alt="Angry" width="35"/>
+                        <input type="range" name="satisfaccion" min="1" max="10" required>
+                        <img src="https://cdn-icons-png.flaticon.com/128/166/166538.png" alt="Happy" width="35"/>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label>En un rango del 1 al 10 que tan satisfecho estas con el trato del personal</label>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/260/260222.png" alt="Angry" width="35"/>
+                        <input type="range" name="personal" min="1" max="10" required>
+                        <img src="https://cdn-icons-png.flaticon.com/128/166/166538.png" alt="Happy" width="35" />
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label>En un rango del 1 al 10 que tan satisfecho estas con el lugar</label>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/260/260222.png" alt="Angry" width="35" />
+                        <input type="range" name="lugar" min="1" max="10" required>
+                        <img src="https://cdn-icons-png.flaticon.com/128/166/166538.png" alt="Happy" width="35"/>
+                    </div>
+                </div>
+                <button>Enviar encuesta</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
