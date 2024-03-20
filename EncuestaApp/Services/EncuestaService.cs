@@ -14,7 +14,7 @@ namespace EncuestaApp.Services
 {
     public class EncuestaService
     {
-        HttpListener server = new HttpListener();
+        private readonly HttpListener server = new HttpListener();
 
         public EncuestaService()
         {
