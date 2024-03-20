@@ -57,7 +57,7 @@
                     </Style.Triggers>
                 </Style>
             </DockPanel.Resources>
-            <TextBlock Foreground="#000" VerticalAlignment="Center" Text="Encontraste todo lo que buscabas" Background="Transparent"></TextBlock>
+            <TextBlock Foreground="White" VerticalAlignment="Center" Text="Encontraste todo lo que buscabas" Background="Transparent"></TextBlock>
         </DockPanel>
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Promedio: <Run Text="{Binding Personal, StringFormat=N2}"></Run></TextBlock>
         <DockPanel MinHeight="1" Height="{Binding Personal}" Grid.Row="2" Grid.Column="1" Margin="20" VerticalAlignment="Bottom">
@@ -66,7 +66,6 @@
             </DockPanel.LayoutTransform>
             <DockPanel.Resources>
                 <Style TargetType="DockPanel">
-                    <Setter Property="Background" Value="White"/>
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Red}">
                             <Setter Property="Background" Value="Red"/>

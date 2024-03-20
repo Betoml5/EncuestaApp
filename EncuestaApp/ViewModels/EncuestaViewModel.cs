@@ -34,13 +34,13 @@ namespace EncuestaApp.ViewModels
             Encuestas.Add(e);
 
             Satisfaccion = Encuestas.Average(x => x.Satisfaccion) * 10;
-            _ = Satisfaccion <= 40 ? BgSatisfaccion = Color.Red : (Satisfaccion > 40 && Satisfaccion <= 80) ? BgSatisfaccion = Color.Yellow : BgSatisfaccion = Color.Green;
+            BgSatisfaccion = Satisfaccion <= 40 ? Color.Red : (Satisfaccion > 40 && Satisfaccion <= 80) ? Color.Yellow : Color.Green;
            
             Lugar = Encuestas.Average(x => x.Lugar) * 10;
-            _ = Lugar <= 40 ? BgLugar = Color.Red : (Lugar > 40 && Lugar < 80)? BgLugar = Color.Yellow: BgLugar = Color.Green;
+            BgLugar = Lugar <= 40 ? Color.Red : (Lugar > 40 && Lugar < 80)? Color.Yellow: Color.Green;
             
             Personal = Encuestas.Average(x => x.Personal) * 10;
-            _ = Personal <= 40 ? BgPersonal = Color.Red : (Personal > 40 && Personal < 80) ? BgPersonal = Color.Yellow : BgPersonal = Color.Green;
+            BgPersonal = Personal <= 40 ? Color.Red : (Personal > 40 && Personal < 80) ? Color.Yellow : Color.Green;
 
             OnPropertyChanged(nameof(Satisfaccion));
             OnPropertyChanged(nameof(Lugar));
