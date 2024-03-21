@@ -41,17 +41,17 @@
             Grid.ColumnSpan="3"
             Text="Resultados de la encuesta de servicio al cliente"/>
         <TextBlock Grid.Row="1" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" >Promedio: <Run Text="{Binding Satisfaccion, StringFormat=N2}"></Run></TextBlock>
-        <DockPanel MinHeight="1"  Height="{Binding Satisfaccion}" Grid.Row="3" Margin="20" VerticalAlignment="Bottom">
+        <DockPanel MinHeight="1"  Height="{Binding HeigthSatisfaccion}" Grid.Row="3" Margin="20" VerticalAlignment="Bottom">
             <DockPanel.Resources>
                 <Style TargetType="DockPanel">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Red}">
+                        <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Red}">
                             <Setter Property="Background" Value="Red"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Yellow}">
+                        <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Yellow}">
                             <Setter Property="Background" Value="Yellow"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Green}">
+                        <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Green}">
                             <Setter Property="Background" Value="Green"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -60,7 +60,7 @@
             <TextBlock Foreground="White" VerticalAlignment="Center" Text="Encontraste todo lo que buscabas" Background="Transparent"></TextBlock>
         </DockPanel>
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Promedio: <Run Text="{Binding Personal, StringFormat=N2}"></Run></TextBlock>
-        <DockPanel MinHeight="1" Height="{Binding Personal}" Grid.Row="2" Grid.Column="1" Margin="20" VerticalAlignment="Bottom">
+        <DockPanel MinHeight="1" Height="{Binding HeigthPersonal}" Grid.Row="2" Grid.Column="1" Margin="20" VerticalAlignment="Bottom">
             <DockPanel.LayoutTransform>
                 <RotateTransform Angle="180"></RotateTransform>
             </DockPanel.LayoutTransform>
@@ -86,7 +86,7 @@
             </TextBlock>
         </DockPanel>
         <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">Promedio: <Run Text="{Binding Lugar, StringFormat=N2}"></Run></TextBlock>
-        <DockPanel MinHeight="1" Height="{Binding Lugar}" Grid.Row="2"  Grid.Column="2" Margin="20" VerticalAlignment="Bottom">
+        <DockPanel MinHeight="1" Height="{Binding HeigthLugar}" Grid.Row="2"  Grid.Column="2" Margin="20" VerticalAlignment="Bottom">
             <DockPanel.LayoutTransform>
                 <RotateTransform Angle="180"></RotateTransform>
             </DockPanel.LayoutTransform>
