@@ -45,16 +45,15 @@
             Resultados de la encuesta de servicio al cliente
         </TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="0">Promedio: <Run Text="{Binding Satisfaccion, StringFormat=N2}"></Run></TextBlock>
-
-        <StackPanel Height="{Binding Satisfaccion}" Grid.Row="1" Grid.RowSpan="2" Background="#FAEF5D" Margin="20"  VerticalAlignment="Bottom">
+        <StackPanel MinHeight="1" Height="{Binding Satisfaccion}" Grid.Row="1" Grid.RowSpan="2" Background="#FAEF5D" Margin="20"  VerticalAlignment="Bottom">
             <TextBlock Foreground="#000">Encontraste todo lo que buscabas</TextBlock>
         </StackPanel>
         <TextBlock Grid.Row="1" Grid.Column="1">Promedio: <Run Text="{Binding Personal, StringFormat=N2}"></Run></TextBlock>
-        <StackPanel Height="{Binding Personal}" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Background="#FF004D" Margin="20" VerticalAlignment="Bottom">
+        <StackPanel MinHeight="1" Height="{Binding Personal}" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Background="#FF004D" Margin="20" VerticalAlignment="Bottom">
             <TextBlock>El trato del personal fue bueno</TextBlock>
         </StackPanel>
         <TextBlock Grid.Row="1" Grid.Column="2">Promedio: <Run Text="{Binding Lugar, StringFormat=N2}"></Run></TextBlock>
-        <StackPanel Height="{Binding Lugar}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Background="#7E2553" Margin="20" VerticalAlignment="Bottom">
+        <StackPanel MinHeight="1" Height="{Binding Lugar}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Background="#7E2553" Margin="20" VerticalAlignment="Bottom">
             <TextBlock>El lugar fue agradable</TextBlock>
         </StackPanel>
     </Grid>
