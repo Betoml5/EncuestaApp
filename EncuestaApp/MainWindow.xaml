@@ -13,11 +13,30 @@
 
     <Grid Background="#1D2B53">
         <Grid.Resources>
-            <Style TargetType="TextBlock">
+            <Style TargetType="TextBlock" >
                 <Setter Property="Foreground" Value="#fff"></Setter>
                 <Setter Property="FontFamily" Value="Arial"></Setter>
                 <Setter Property="TextAlignment" Value="Center"></Setter>
                 <Setter Property="Margin" Value="0,20"></Setter>
+            </Style>
+            <Style TargetType="TextBlock" x:Key="txtDynamic">
+                <Setter Property="Foreground" Value="#000"></Setter>
+                <Setter Property="FontFamily" Value="Arial"></Setter>
+                <Setter Property="Text" Value="El lugar fue agradable" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Background" Value="Transparent" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Red}">
+                        <Setter Property="Foreground" Value="White"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding BgLugar}" Value="{x:Static viewmodels:Color.Yellow}">
+                        <Setter Property="Foreground" Value="Aqua"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Green}">
+                        <Setter Property="Foreground" Value="White"/>
+                    </DataTrigger>
+                </Style.Triggers>
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
@@ -41,75 +60,81 @@
             Grid.ColumnSpan="3"
             Text="Resultados de la encuesta de servicio al cliente"/>
         <TextBlock Grid.Row="1" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" >Promedio: <Run Text="{Binding Satisfaccion, StringFormat=N2}"></Run> <LineBreak  />(Mayor es mejor)</TextBlock>
-        <DockPanel MinHeight="1"  Height="{Binding HeigthSatisfaccion}" Grid.Row="3" Margin="20" VerticalAlignment="Bottom">
-            <DockPanel.Resources>
-                <Style TargetType="DockPanel">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Red}">
-                            <Setter Property="Background" Value="Red"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Yellow}">
-                            <Setter Property="Background" Value="Yellow"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Green}">
-                            <Setter Property="Background" Value="Green"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </DockPanel.Resources>
-            <TextBlock Foreground="#000" VerticalAlignment="Center" Text="Encontraste todo lo que buscabas" Background="Transparent"></TextBlock>
-        </DockPanel>
+        <StackPanel  Grid.Row="3" Margin="20" VerticalAlignment="Bottom">
+            <DockPanel MinHeight="1"  Height="{Binding HeigthSatisfaccion}">
+                <DockPanel.Resources>
+                    <Style TargetType="DockPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Red}">
+                                <Setter Property="Background" Value="Red"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Yellow}">
+                                <Setter Property="Background" Value="Yellow"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding BgSatisfaccion}" Value="{x:Static viewmodels:Color.Green}">
+                                <Setter Property="Background" Value="Green"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DockPanel.Resources>
+            </DockPanel>
+            <TextBlock Margin="0, 20,0,0">
+                Encontraste todo lo que buscabas
+            </TextBlock>
+        </StackPanel>
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Promedio: <Run Text="{Binding Personal, StringFormat=N2}"></Run><LineBreak  />(Mayor es mejor)</TextBlock>
-        <DockPanel MinHeight="1" Height="{Binding HeigthPersonal}" Grid.Row="2" Grid.Column="1" Margin="20" VerticalAlignment="Bottom">
-            <DockPanel.LayoutTransform>
-                <RotateTransform Angle="180"></RotateTransform>
-            </DockPanel.LayoutTransform>
-            <DockPanel.Resources>
-                <Style TargetType="DockPanel">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Red}">
-                            <Setter Property="Background" Value="Red"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Yellow}">
-                            <Setter Property="Background" Value="Yellow"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Green}">
-                            <Setter Property="Background" Value="Green"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </DockPanel.Resources>
-            <TextBlock Foreground="#000" VerticalAlignment="Center" Text="El trato del personal fue bueno" Background="Transparent">
-                <TextBlock.LayoutTransform>
+        <StackPanel  Grid.Row="2" Grid.Column="1" Margin="20" VerticalAlignment="Bottom">
+            <DockPanel MinHeight="1" Height="{Binding HeigthPersonal}">
+                <DockPanel.LayoutTransform>
                     <RotateTransform Angle="180"></RotateTransform>
-                </TextBlock.LayoutTransform>
+                </DockPanel.LayoutTransform>
+                <DockPanel.Resources>
+                    <Style TargetType="DockPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Red}">
+                                <Setter Property="Background" Value="Red"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Yellow}">
+                                <Setter Property="Background" Value="Yellow"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Green}">
+                                <Setter Property="Background" Value="Green"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DockPanel.Resources>
+              
+            </DockPanel>
+            <TextBlock Text="El trato del personal fue bueno" Margin="0,20,0,0" >
+
             </TextBlock>
-        </DockPanel>
+        </StackPanel>
         <TextBlock  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">Promedio: <Run Text="{Binding Lugar, StringFormat=N2}"></Run><LineBreak  />(Mayor es mejor)</TextBlock>
-        <DockPanel MinHeight="1" Height="{Binding HeigthLugar}" Grid.Row="2"  Grid.Column="2" Margin="20" VerticalAlignment="Bottom">
-            <DockPanel.LayoutTransform>
-                <RotateTransform Angle="180"></RotateTransform>
-            </DockPanel.LayoutTransform>
-            <DockPanel.Resources>
-                <Style TargetType="DockPanel">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Red}">
-                            <Setter Property="Background" Value="Red"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding BgLugar}" Value="{x:Static viewmodels:Color.Yellow}">
-                            <Setter Property="Background" Value="Yellow"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding BgLugar}" Value="{x:Static viewmodels:Color.Green}">
-                            <Setter Property="Background" Value="Green"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </DockPanel.Resources>
-            <TextBlock Foreground="#000" Text="El lugar fue agradable" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent">
-                <TextBlock.LayoutTransform>
+        <StackPanel Grid.Row="2"  Grid.Column="2" Margin="20" VerticalAlignment="Bottom">
+            <DockPanel MinHeight="1" Height="{Binding HeigthLugar}" >
+                <DockPanel.LayoutTransform>
                     <RotateTransform Angle="180"></RotateTransform>
-                </TextBlock.LayoutTransform>
+                </DockPanel.LayoutTransform>
+                <DockPanel.Resources>
+                    <Style TargetType="DockPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Red}">
+                                <Setter Property="Background" Value="Red"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Yellow}">
+                                <Setter Property="Background" Value="Yellow"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding BgPersonal}" Value="{x:Static viewmodels:Color.Green}">
+                                <Setter Property="Background" Value="Green"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DockPanel.Resources>
+             
+            </DockPanel>
+            <TextBlock Margin="0,20,0,0">
+                El lugar fue agradable
             </TextBlock>
-        </DockPanel>
+        </StackPanel>
     </Grid>
 </Window>

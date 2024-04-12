@@ -70,6 +70,15 @@ namespace EncuestaApp.Services
                             OnEncuestaRecibida?.Invoke(this, encuesta);
                         });
 
+                        string paginaRegresa = File.ReadAllText("Assets/Regreso.html");
+                        byte[] bufferPaginaRegresa = Encoding.UTF8.GetBytes(paginaRegresa);
+                        context.Response.StatusCode = 200;
+                        context.Response.ContentLength64 = bufferPaginaRegresa.Length;
+                        context.Response.OutputStream.Write(bufferPaginaRegresa, 0, bufferPaginaRegresa.Length);
+
+
+                 
+
                         context.Response.StatusCode = 200;
                         context.Response.OutputStream.Close();
                     }
